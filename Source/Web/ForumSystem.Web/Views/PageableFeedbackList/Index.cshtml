@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ForumSystem.Data.Models.Feedback>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>
+                    Author
+                </td>
+                <td>
+                    Title
+                </td>
+                <td>
+                    Content
+                </td>
+                <td>
+                    CreatedOn
+                </td>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var feed in Model)
+            {
+                <tr>
+                    <td>@feed.Author</td>
+                    <td>@feed.Title</td>
+                    <td>@feed.Content</td>
+                    <td>@feed.CreatedOn</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<nav>
+    <ul class="pagination">
+        <li><a href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
+        @for (int i = 0; i <= (Model.Count()/4); i++)
+        {
+            <li><a href="#">@i+1</a></li>
+        }        
+        <li><a href="#"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
+    </ul>
+</nav>
+
